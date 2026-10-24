@@ -1,0 +1,32 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+/data/raw/*
+!/data/raw/.gitkeep
+/data/interim/*
+!/data/interim/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+/outputs/tables/*
+!/outputs/tables/.gitkeep
+/outputs/figures/*
+!/outputs/figures/.gitkeep
+# Datos y documentos de terceros: nunca a GitHub
+*.xlsx
+*.xls
+*.xlsm
+*.xlsb
+*.pdf
+*.parquet
+*.gpkg
+*.shp
+*.dbf
+*.shx
+*.prj
+*.geojson
+*.zip
+*.env
+.env.*
+# Ids/entrevistas individuales y cualquier salida no anonimizada
+/data/private/
