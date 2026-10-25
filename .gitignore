@@ -30,3 +30,28 @@ __pycache__/
 .env.*
 # Ids/entrevistas individuales y cualquier salida no anonimizada
 /data/private/
+# Resultados locales detallados: revisar privacidad y cifras antes de publicar.
+/outputs/estimacion_preliminar/
+/outputs/diagnostico_2026-10-24/
+/outputs/sbo_actualizada/
+/outputs/historico/
+/outputs/matrices_od_referencia/
+/outputs/expansion_temporal_terrestre/
+/outputs/atributos_alternativas/
+/outputs/atributos_logit_actualizados/
+/outputs/calibracion_logit/
+/outputs/calibracion_logit_11b/
+# Transcripciones de terceros e informes de trabajo pendientes de autorización.
+/data/templates/citra_matriz_publicada.json
+/data/templates/config_estimacion.json
+/outputs/contexto_datos_para_otra_ia.md
+# Archivos operacionales y de edición.
+*.pkl
+*.pickle
+*.tmp
+*.log
+*.iter
+*.bak
+.DS_Store
+.idea/
+.vscode/

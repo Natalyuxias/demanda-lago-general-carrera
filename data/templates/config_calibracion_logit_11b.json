@@ -1,0 +1,30 @@
+{
+  "version":"2026-10-25",
+  "salida":"outputs/calibracion_logit_11b",
+  "entrada_etapa11":"outputs/calibracion_logit",
+  "beta_c_por_CLP":-0.00002,
+  "beta_t_central_por_h":-0.20,
+  "ratio_acceso_central":1.5,
+  "ratio_horario_central":1.5,
+  "VST_central_CLP_h_unidad_decision":10000,
+  "lambda_central":0.7,
+  "ratios_acceso":[1.0,1.5,2.0],
+  "ratios_horario":[0.5,1.0,1.5],
+  "VST_CLP_h":[5000,10000,15000],
+  "lambdas":[0.5,0.7,0.9],
+  "esquema_sensibilidades":"Un factor a la vez respecto al central, por cada segmento; beta_c constante y beta_t=beta_c*VST; beta_a=ra*beta_t; beta_e=re*beta_t. No combinar escenarios como observaciones",
+  "normalizacion":"ASC_terrestre0; escala superior1; C en10000CLP y tiempos horas; mu_Biogeme_lago=1/lambda",
+  "metodo_pendientes":"Supuestos de transferencia exploratoria solicitados por el equipo, no coeficientes estimados en literatura ni ARISTO",
+  "metodo_ASC_VL_CAM":"Biogeme3.3.2 maxima verosimilitud con pendientes fijas, misma base y pesos normalizados de Etapa11",
+  "metodo_ASC_PEATON":"Biogeme cross-entropy agregada sobre3celdas proxyVL de Etapa11; no entrevistas terrestres de personas, sin error estandar de encuesta ni MLE de elecciones personales",
+  "ponderacion_VL":"CC_PC1_laboral",
+  "ponderacion_CAM":"jornada10h",
+  "unidades_decision":{"VL":"viaje de vehiculo, dinero total del grupo; NO persona. VST10000 es por vehiculo-h, no multiplicado por ocupacion","CAM":"viaje de camion; NO tonelada ni persona. VST10000 supuesto por vehiculo-h, sin costo de retraso de mercancia demostrado","PEATON":"viaje individual de pasajero general; VST10000 por persona-h bajo perfil de transporte publico de referencia"},
+  "conservacion_atributos":"No recalcular rutas, precios, matrizOD ni factores. Misma imputacion previa/desembarque a viaje; bus6h descompuesto sin duplicar componentes. Mismos pendientes y precios convencionales de11",
+  "fuente_numeros":"Instruccion del equipo Etapa11B; fecha incorporacion2026-10-25. Ninguna estimacion bibliografica de estos valores para La Tehuelche",
+  "referencias":[
+    {"autor":"Wardman, M.","ano":2004,"titulo":"Public transport values of time","revista":"Transport Policy11(4),363-377","doi":"10.1016/j.tranpol.2004.05.001","url":"https://doi.org/10.1016/j.tranpol.2004.05.001","copia_verificada":"https://eprints.whiterose.ac.uk/id/eprint/3393/2/Public_Transport_Values_of_Time_secure.pdf","secciones":"2.2 Evidence on out-of-vehicle time;5 Discussion;6 Conclusions (pp2-5,20-21 manuscrito)","alcance":"Diferencia IVT, walk, access, wait y headway, con variacion contextual. No acredita1.5 para Tehuelche, acceso en auto o camion"},
+    {"autor":"OECD/ITF","ano":2014,"titulo":"Valuing Convenience in Public Transport","doi":"10.1787/9789282107683-en","url":"https://www.oecd.org/content/dam/oecd/en/publications/reports/2014/12/valuing-convenience-in-public-transport_g1g4525d/9789282107683-en.pdf","secciones":"Cap1 pp33-43: walk/wait y departure time convenience, tablas1.2-1.12","alcance":"Distingue acceso, espera, frecuencia y desplazamiento de horario; depende del contexto. No transferir multiplicador de headway directamente a wH ni asumir caminar=conducir"}
+  ],
+  "fecha_revision_bibliografia":"2026-10-25"
+}

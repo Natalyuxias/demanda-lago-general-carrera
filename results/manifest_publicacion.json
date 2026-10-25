@@ -1,0 +1,76 @@
+{
+  "version": "2026-10-25",
+  "regla": "Seleccion editorial conservadora; MIN5 por alternativa y supresion complementaria; no garantia formal de anonimato",
+  "archivos": [
+    {
+      "archivo": "results/matrices_od/matriz_vl_divulgacion.csv",
+      "fuente_local": "outputs/matrices_od_referencia; outputs/expansion_temporal_terrestre",
+      "criterio_seleccion": "Ejemplo VL verano; dos alternativas con soporte>=5; resto reservado sin publicar totales que permitan reconstruir celdas",
+      "filas": 32,
+      "sha256": "0b20db6680479ea3ee4e5ef9ccf9e1925025db8c5854bc3dba8d64e62cba7e1d"
+    },
+    {
+      "archivo": "results/expansion_temporal/factores_sensibilidad.csv",
+      "fuente_local": "outputs/expansion_temporal_terrestre/factores_10h_24h_y_cobertura.csv",
+      "criterio_seleccion": "Cocientes calculados, sin transcribir conteos horarios originales CITRA",
+      "filas": 8,
+      "sha256": "2bac972ca0108210329e74e774b4860f2941253186696ccb2ca2a70e2feaf0ef"
+    },
+    {
+      "archivo": "results/atributos/rutas_completas_vehiculares.csv",
+      "fuente_local": "outputs/atributos_alternativas/atributos_alternativas.csv",
+      "criterio_seleccion": "Solo atributos de red, sin longitud/ocupacion declaradas ni secuencias de arcos originales",
+      "filas": 16,
+      "sha256": "cd7a337c1097bc1321ef405331d41bf6a2a7a1ab6f5124ae5920f6b6c005f55a"
+    },
+    {
+      "archivo": "results/atributos/tarifas_referencia.csv",
+      "fuente_local": "config_calibracion_logit.json; ARISTO tabla52",
+      "criterio_seleccion": "Tarifas de referencia y descuentos, sin tickets ni pagadores individuales",
+      "filas": 10,
+      "sha256": "aa07c9fc390f09cd8f239272a12bda56b0b24e65ef6d5214baaf9790e11d6639"
+    },
+    {
+      "archivo": "results/calibracion_logit/parametros_centrales_11b.csv",
+      "fuente_local": "outputs/calibracion_logit_11b/parametros_logit_recalibrados.csv",
+      "criterio_seleccion": "Parametros de modelos agregados; ninguna fila de eleccion/atributo individual",
+      "filas": 21,
+      "sha256": "2d9b97a9f753d51bfb6f89481f824c795483c8c8fab558047a6cb10d3408d1ae"
+    },
+    {
+      "archivo": "results/sensibilidades/parametros_11b.csv",
+      "fuente_local": "outputs/calibracion_logit_11b/parametros_logit_recalibrados.csv",
+      "criterio_seleccion": "Supuestos y ASC de modelos, no nuevas observaciones",
+      "filas": 168,
+      "sha256": "dc55c1e5392c40e31f4f2be9f33a7bcb7329d08b2d82810cd037e57fe4c41ee4"
+    },
+    {
+      "archivo": "results/calibracion_logit/probabilidades_11b_divulgacion.csv",
+      "fuente_local": "outputs/calibracion_logit_11b/probabilidades_base_recalibradas.csv",
+      "criterio_seleccion": "VL con soporte>=5 en ambas alternativas; peatones perfil proxy; CAM/otros OD reservados; sin medias individuales",
+      "filas": 96,
+      "sha256": "dea48832cce2a71154771f88ce6ebba0514c881f8488ab01960b93aa082ac857"
+    },
+    {
+      "archivo": "results/sensibilidades/probabilidades_11b_divulgacion.csv",
+      "fuente_local": "outputs/calibracion_logit_11b/sensibilidades_parametros.csv",
+      "criterio_seleccion": "Misma supresion que central; no se publican atributos ni probabilidades de celdas reducidas",
+      "filas": 768,
+      "sha256": "edbb7b0d922f27fcc83444a2e5d50a1ebc41aa2cc92c5fb620acb8b656148c99"
+    },
+    {
+      "archivo": "results/calibracion_logit/ajuste_global_11b.csv",
+      "fuente_local": "outputs/calibracion_logit_11b/ajuste_recalibraciones.csv",
+      "criterio_seleccion": "Objetivos globales sobre61VL/9CAM; proxy referido a VL. Sin desagregacion de los controles de celdas",
+      "filas": 3,
+      "sha256": "43b0c8bdbb49e81d4ceaad30aa9a9726fab7786485870a1c38d95f65972ffc22"
+    },
+    {
+      "archivo": "archive/results/etapa11/parametros_centrales.csv",
+      "fuente_local": "outputs/calibracion_logit/parametros_logit.csv",
+      "criterio_seleccion": "Comparacion historica de modelos; no entrevistas ni objetivos por celda",
+      "filas": 21,
+      "sha256": "6cc24381ac9a4e8b8c99d4452f3ebf34266f781bb7b1c58b53f4a21d349d7cd9"
+    }
+  ]
+}

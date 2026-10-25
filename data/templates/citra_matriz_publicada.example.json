@@ -1,0 +1,15 @@
+{
+  "fuente": "Estudios de consultoras/Informe 2c - MOP aysen vf.pdf",
+  "seccion": "6.1.1 y 6.1.2",
+  "pagina_livianos": 83,
+  "pagina_camiones": 88,
+  "campana": "verano 2026; 20 enero a 5 febrero",
+  "interpretacion": "Conteo de encuestas OD publicado, sin expansion y sin desagregacion de alternativa utilizada",
+  "observaciones": [],
+  "restricciones": [
+    "No son flujos expandidos.",
+    "No asignar estos conteos a la barcaza, tierra por Chile o Argentina: las tablas publican OD, no alternativa por observación.",
+    "No sumar a las encuestas de ARISTO ni construir un factor combinado.",
+    "Plantilla compartible sin observaciones de terceros; restaurar transcripcion autorizada solo localmente si se requiere contraste."
+  ]
+}

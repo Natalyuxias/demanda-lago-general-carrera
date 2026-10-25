@@ -1,0 +1,133 @@
+{
+  "version": "2026-10-25",
+  "alternativas": [
+    "terrestre_chile",
+    "barcaza_actual"
+  ],
+  "segmentos": [
+    "VL",
+    "CAM",
+    "PEATON"
+  ],
+  "salida": "outputs/atributos_logit_actualizados",
+  "fuente_rutas": "outputs/atributos_alternativas",
+  "estaciones": {
+    "Verano": [
+      12,
+      1,
+      2
+    ],
+    "Otoño": [
+      3,
+      4,
+      5
+    ],
+    "Invierno": [
+      6,
+      7,
+      8
+    ],
+    "Primavera": [
+      9,
+      10,
+      11
+    ]
+  },
+  "frecuencia_mensual_por_sentido": {
+    "1": 11,
+    "2": 11,
+    "3": 11,
+    "4": 11,
+    "5": 8,
+    "6": 8,
+    "7": 8,
+    "8": 8,
+    "9": 8,
+    "10": 8,
+    "11": 8,
+    "12": 11
+  },
+  "fuente_frecuencia": "Confirmacion operacional del usuario; ordinarios sin carga peligrosa",
+  "ano_ponderacion_dias": 2026,
+  "w_horario": 0.25,
+  "H_central": "168/f mensual, agregado por dias del mes; no espera fisica",
+  "anticipacion_h": {
+    "VL": 2,
+    "CAM": 2,
+    "PEATON": 1
+  },
+  "desembarque_h": {
+    "optimista": 0.25,
+    "central": 0.5,
+    "conservador": 0.75
+  },
+  "fuente_desembarque": "Supuesto exploratorio solicitado por usuario, transferido de otros ferries sin referencia empirica especifica suministrada; no medido ni estandar Tehuelche. En peatones es sensibilidad sin evidencia diferenciada",
+  "tarifas_ARISTO": {
+    "vehiculo_hasta_5_5m": 21270,
+    "adulto": 2550,
+    "metro_lineal": 7310,
+    "estudiante_periodo_escolar": 0,
+    "adulto_mayor_discapacidad": 0
+  },
+  "fuente_tarifas": "Informe ARISTO.pdf, tabla52, p121; web actual adulto2510 no sustituye2550 historico",
+  "regla_conductor": "Liberado si servicio subvencionado segun extracto web actual del operador; regla/ticket historico2025/26 no identificado. Comparar escenario paga; no afirmar inclusion fisica de pasaje en tarifa vehiculo",
+  "fuente_regla_conductor": "https://www.navieraustral.cl/lago-general-carrera/ (Extracto Condiciones Comerciales, sin fecha de vigencia); OC1403-638-AG24 prueba subsidio2024, sin verificar cada ticket2025/26. El PDF Condiciones2025 NO establece regla de conductor",
+  "fuente_condiciones": "https://www.navieraustral.cl/wp-content/uploads/2024/12/Condiciones-Comerciales-2025-NASA.pdf",
+  "fuente_tarifario_actual": "https://www.navieraustral.cl/lago-general-carrera/",
+  "mes_base_privado": "2025-12",
+  "mes_referencia_tarifas_imputado": "2026-01",
+  "estado_mes_tarifa": "Convencion exploratoria: tabla52 sin mes exacto; asignacion enero2026 NO verificada, conservar nominal y escenario sin ajuste",
+  "ipc": {
+    "2024-08": 104.45,
+    "2025-12": 109.26,
+    "2026-01": 109.71
+  },
+  "fuentes_ipc": [
+    "https://www.sii.cl/valores_y_fechas/utm/utm2024.htm",
+    "https://www.sii.cl/valores_y_fechas/utm/utm2025.htm",
+    "https://www.sii.cl/valores_y_fechas/utm/utm2026.htm"
+  ],
+  "VST_privado_CLP_h": null,
+  "motivo_VST_faltante": "EVALSO eq3.2 declara VST privado pero no justifica valor numerico por segmento. No adoptar10000 de CostGen ARISTO ni VST social",
+  "ocupacion_control_sensibilidad_max_VL": 9,
+  "fuente_control_ocupacion": "Filtro exploratorio de calidad configurable, no limite legal ni descarte del dato original; se conserva muestra completa y sensibilidad por registro>9",
+  "servicios": [
+    {
+      "servicio": "Carolina",
+      "alternativa": "barcaza_actual",
+      "OD": "Coyhaique <-> Chile Chico",
+      "tiempo_publicado_h": 6,
+      "fuente": "ARISTO tabla61 pp127-128, nota(b)",
+      "alcance": "Recorrido completo publicado Coyhaique-Puerto Ibanez-Chile Chico; coordinado; desglose interno y diferencias por sentido no identificados",
+      "tarifa_historica_confirmada_CLP": null
+    },
+    {
+      "servicio": "Interlagos",
+      "alternativa": "terrestre_chile",
+      "OD": "Coyhaique <-> Chile Chico",
+      "tiempo_publicado_h": 8,
+      "fuente": "ARISTO tabla61 pp127-128",
+      "alcance": "Recorrido completo via Cerro Castillo, Rio Tranquilo, Puerto Guadal; no sumar tiempo de conduccion VL",
+      "tarifa_historica_confirmada_CLP": null
+    },
+    {
+      "servicio": "Freddy",
+      "alternativa": "barcaza_actual",
+      "OD": "Aeropuerto Balmaceda <-> Chile Chico",
+      "tiempo_publicado_h": 5,
+      "fuente": "ARISTO tabla61 pp127-128 nota(b)",
+      "alcance": "Solo antecedente; OD aeropuerto fuera de matriz focal y no sustituye Coyhaique",
+      "tarifa_historica_confirmada_CLP": null
+    }
+  ],
+  "referencia_tarifa_Carolina_OC": {
+    "precio_CLP": 11100,
+    "mes": "2024-08",
+    "numero": "1403-638-AG24",
+    "fuente": "https://www.mercadopublico.cl/PurchaseOrder/Modules/PO/DetailsPurchaseOrder.aspx?qs=hXxP3UeXTlzIxByddPYY8w%3D%3D",
+    "estado": "Precio institucional por unidad para suministro terrestre y maritimo; integracion exacta por ticket y tarifa publica2025/26 NO verificadas; solo sensibilidad"
+  },
+  "bus_penalizacion_adicional_central": "No identificada. No sumar automaticamente wH de barcaza al servicio coordinado ni al tiempo publicado",
+  "mapeo_utilidad": "EVALSO eq3.3 no explicita embarque. Propuesta a validar: viaje_util=viaje+previo+desembarque con mismo beta_t; no coeficiente nuevo. Servicio bus completo: viaje_util=tiempo publicado sin re-agregar componentes incluidos",
+  "fecha_consulta_web": "2026-10-25"
+}

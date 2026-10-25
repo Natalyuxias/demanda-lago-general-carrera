@@ -1,0 +1,4 @@
+﻿segmento,escenario,n_filas,tipo_filas,cuota_objetivo,cuota_predicha,log_likelihood,rho2,fuente_objetivo
+VL,central,61,encuestas_individuales,0.229747397994918,0.2297468995328498,-31.58846768697725,0.0391991577849317,Misma base/pesos Etapa11; VL24h exploratorio
+CAM,central,9,encuestas_individuales,0.4878048780487805,0.4878053009543646,-7.207977991978696,-0.1559309805234352,Misma base/pesos Etapa11; CAM tierra10h vs ferry diario sin homologacion
+PEATON,central,3,celdas_proxy_VL;NO_personas,0.229747397994918,0.2297450524121762,NaN,NaN,Objetivos proxy VL24h Etapa11; no cuota de personas

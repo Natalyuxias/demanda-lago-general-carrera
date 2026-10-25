@@ -1,0 +1,19 @@
+{
+  "python": "3.12.9",
+  "paquetes": {
+    "pandas": "2.3.3",
+    "numpy": "2.4.6",
+    "openpyxl": "3.1.5",
+    "networkx": "3.4.2",
+    "geopandas": "1.0.1",
+    "pyproj": "3.7.1",
+    "matplotlib": "3.10.9",
+    "scipy": "1.17.1",
+    "biogeme": "3.3.2",
+    "biogeme-optimization": "0.0.11",
+    "jax": "0.10.1",
+    "jaxlib": "0.10.1",
+    "pytest": "9.0.0"
+  },
+  "alcance": "Versiones realmente utilizadas; no archivo lock de todas las dependencias transitivas"
+}

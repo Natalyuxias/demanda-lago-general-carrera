@@ -1,0 +1,4 @@
+# Entorno aislado usado en Etapa11; dependencias transitivas resueltas por pip.
+-r requirements.txt
+biogeme==3.3.2
+scipy>=1.15.3,<2

@@ -1,0 +1,44 @@
+{
+  "version":"2026-10-25",
+  "ano_calendario":2026,
+  "OD":[["Chile Chico","Coyhaique"],["Coyhaique","Chile Chico"],["Chile Chico","Puerto Ibáñez"],["Puerto Ibáñez","Chile Chico"]],
+  "segmentos":["VL","CAM","PEATON"],
+  "estaciones":{"Verano":[12,1,2],"Otoño":[3,4,5],"Invierno":[6,7,8],"Primavera":[9,10,11]},
+  "frecuencia_ordinaria_por_mes":{"1":11,"2":11,"3":11,"4":11,"5":8,"6":8,"7":8,"8":8,"9":8,"10":8,"11":8,"12":11},
+  "fuente_frecuencia":"Confirmacion del usuario: diciembre-abril11, mayo-noviembre8 por sentido/semana; no incluye carga peligrosa",
+  "w_horario":0.25,
+  "fuente_w":"Supuesto exploratorio EVALSO confirmado explicitamente por el usuario; no coeficiente calibrado",
+  "agregacion_H_calendario":"sum(intervalos_h**2)/168; ponderacion por duracion de intervalo, supone horario deseado uniforme en la semana; no es espera en muelle",
+  "puntos_referencia":{
+    "Chile Chico":{"nodo_fisico":1358,"zona_ARISTO":39,"conector_ARISTO":1652,"descripcion":"Nodo fisico de anclaje de Conect39 en R265-CH. La zona39 es comunal; no es domicilio ni centroide urbano validado."},
+    "Coyhaique":{"nodo_fisico":1223,"zona_ARISTO":31,"conector_ARISTO":1644,"descripcion":"Nodo fisico de anclaje de Conect31 sobre R243-CH. La zona31 es comunal; no representa un domicilio individual."},
+    "Puerto Ibáñez":{"nodo_fisico":1021,"zona_ARISTO":null,"conector_ARISTO":null,"descripcion":"Punto de referencia explicito en acceso terrestre a rampa (arco1510). No se utiliza ni renombra la zona40 Rio Ibanez como localidad. Falta acceso intralocal desde el destino efectivo."}
+  },
+  "fuente_puntos":"Nodos_RedVial.shp; Nodos_Puntos_Pasada.xlsx; conectores y RAMPA de Costos_Red_Vial_Actual.xlsx; puntos publicos de red, no microdatos domiciliarios",
+  "barcaza":{"arco":1728,"Chile Chico":1117,"Puerto Ibáñez":1026,"navegacion_h":2,"fuente_navegacion":"ARISTO tabla38 p112 y catastro Transbordadores.shp Tiempo_de=2h; Naviera Austral LGC confirma2h","desembarque_h":null},
+  "tarifas_ARISTO_tabla52_p121":{"VL_hasta_5_5m":21270,"adulto_general":2550,"metro_lineal":7310,"moto":4230,"bicicleta":1620},
+  "fuente_tarifas":"Informe ARISTO §5.1.2 tabla52 p121, verano2026. Tarifas principales por tramo; no asumir numero de pasajeros pagadores ni tasas no incluidas.",
+  "longitud_CAM_referencia_red_m":16,
+  "fuente_longitud_CAM_referencia":"Tipos de arcos!AA71=116960 dividido por tarifa7310/m. Hipotesis implicita de red, no longitud observada de todos los camiones",
+  "tarifas_actuales_referencia":{"adulto_general":2510,"VL_hasta_5_5m":21270,"metro_lineal":7310},
+  "anticipacion_h":{"VL":2,"CAM":2,"PEATON":1},
+  "fuente_anticipacion":"https://www.navieraustral.cl/preguntas-frecuentes/",
+  "fuente_calendarios":"https://www.navieraustral.cl/lago-general-carrera/",
+  "fecha_consulta_web":"2026-10-25",
+  "nota_calendarios":"Baja publicada a partir01/05/2026 coincide8ordinarios. Alta publicada suma12ordinarios, no11confirmados. Se conserva como diagnostico y no se borra arbitrariamente un zarpe. La pagina dice literalmente31deabril2026, fecha invalida: no se corrige como evidencia de vigencia.",
+  "calendarios":{
+    "baja_2026_CC_PI":{"regimen":"baja","sentido":"Chile Chico → Puerto Ibáñez","fuente_vigencia":"Naviera: a partir01/05/2026; transferencia a primavera2025 no verificada","salidas":[[0,8,false],[1,8,false],[1,16,true],[2,16,false],[3,8,false],[4,8,false],[4,17,false],[5,9,false],[6,16,false]]},
+    "baja_2026_PI_CC":{"regimen":"baja","sentido":"Puerto Ibáñez → Chile Chico","fuente_vigencia":"Naviera: a partir01/05/2026; transferencia a primavera2025 no verificada","salidas":[[0,19,false],[1,11,true],[2,10,false],[2,19,false],[3,19,false],[4,12,false],[4,20,false],[5,12,false],[6,19,false]]},
+    "alta_publicada_CC_PI":{"regimen":"alta","sentido":"Chile Chico → Puerto Ibáñez","fuente_vigencia":"Pagina indica hasta31abril2026 (fecha invalida); frecuencia12difere11delmodelo","salidas":[[0,8,false],[0,17,false],[1,8,false],[1,16,true],[2,8,false],[2,17,false],[3,8,false],[4,8,false],[4,17,false],[5,9,false],[5,16,false],[6,9,false],[6,16,false]]},
+    "alta_publicada_PI_CC":{"regimen":"alta","sentido":"Puerto Ibáñez → Chile Chico","fuente_vigencia":"Pagina indica hasta31abril2026 (fecha invalida); frecuencia12difere11delmodelo","salidas":[[0,12,false],[0,20,false],[1,12,true],[1,20,false],[2,12,false],[2,20,false],[3,20,false],[4,12,false],[4,20,false],[5,12,false],[5,19,false],[6,12,false],[6,19,false]]}
+  },
+  "fronteras":{
+    "Jeinimeni":{"Chile":1359,"Argentina":1323,"segmentos":["VL","CAM"],"horario_ref":"08-20, referencia autoridad07/04/2026; extensiones puntuales verano no generalizables","habilitacion":"particulares, buses y carga con precaucion","fuente":"https://www.pasosfronterizos.gov.cl/noticias/conoce-el-estado-diario-y-horario-de-funcionamiento-de-los-complejos-fronterizos/"},
+    "Palavicini":{"Chile":1311,"Argentina":1609,"segmentos":["VL"],"horario_ref":"08-20, referencia autoridad07/04/2026; no calendario estacional completo","habilitacion":"solo vehiculos menores; excluir CAM","fuente":"https://www.pasosfronterizos.gov.cl/noticias/conoce-el-estado-diario-y-horario-de-funcionamiento-de-los-complejos-fronterizos/"},
+    "Huemules":{"Chile":1503,"Argentina":1502,"segmentos":["VL","CAM"],"horario_ref":"08-20 referencia07/04/2026; 08-21 desde01diciembre hasta31marzo segun DPR14/01/2026","habilitacion":"todo tipo de vehiculos; no equivale a habilitacion automatica para toda mercancia","fuente":"https://www.pasosfronterizos.gov.cl/complejos-fronterizos/aysen/paso-huemules/","fuente_verano":"https://dpraysen.dpr.gob.cl/2026/01/14/complejos-fronterizos-de-la-region-extienden-horario-para-responder-al-aumento-del-flujo-turistico/"}
+  },
+  "fronteras_reingreso_candidatas":["Palavicini","Huemules"],
+  "criterio_ruteo":"Minimo tiempo de conduccion de red, VL usa VEL VL y CAM usa VEL VP. No se utiliza CostGen VL como costo monetario ni como utilidad logit.",
+  "sentidos_viales":"Grafo con ambos sentidos modelados cuando no existe campo restrictivo; Arcos con sentido verifica pares de frontera y barcaza. Falta certificacion de sentidos unicos urbanos y restricciones de peso.",
+  "alcance_atributos":"Viaje completo entre puntos de referencia fisicos explicitados. La localizacion intrazonal/puerta a puerta de encuestados no se completa con10kmconvencionales ni con0tiempo. Los conectores se registran aparte como faltantes."
+}

@@ -1,0 +1,153 @@
+{
+  "version": "2026-10-25",
+  "ano_calendario": 2026,
+  "fuente_calendario": "Ano no bisiesto de referencia para contar dias; no es proyeccion ni cobertura observada de todos los meses",
+  "fuente_frecuencia_historica": "Definicion operacional confirmada por usuario 25/10/2026; ordinaria por sentido, excluye carga peligrosa",
+  "frecuencia_historica_por_mes": {
+    "1": 11,
+    "2": 11,
+    "3": 11,
+    "4": 11,
+    "5": 8,
+    "6": 8,
+    "7": 8,
+    "8": 8,
+    "9": 8,
+    "10": 8,
+    "11": 8,
+    "12": 11
+  },
+  "estaciones": {
+    "Verano": [
+      12,
+      1,
+      2
+    ],
+    "Otoño": [
+      3,
+      4,
+      5
+    ],
+    "Invierno": [
+      6,
+      7,
+      8
+    ],
+    "Primavera": [
+      9,
+      10,
+      11
+    ]
+  },
+  "campana_por_mes": {
+    "1": "Verano",
+    "2": "Verano",
+    "3": null,
+    "4": null,
+    "5": "Normal",
+    "6": null,
+    "7": null,
+    "8": null,
+    "9": "Primavera",
+    "10": "Primavera",
+    "11": "Primavera",
+    "12": "Verano"
+  },
+  "fuente_campanas": "Media por fila/zarpe reutilizada de ARISTO: Primavera tabla78 apoya dos zarpes por sentido; Verano y Normal una fila por zarpe sigue siendo supuesto. Verano/Primavera transfieren composicion a meses de esa estacion; marzo-abril e invierno quedan sin perfil en la base principal",
+  "frecuencias_sbo": {
+    "mismo_total_dos_naves": {
+      "baja": 8,
+      "alta": 11
+    },
+    "baja_12_alta_11": {
+      "baja": 12,
+      "alta": 11
+    },
+    "baja_12_alta_14": {
+      "baja": 12,
+      "alta": 14
+    },
+    "todas_20": {
+      "baja": 20,
+      "alta": 20
+    }
+  },
+  "fuente_frecuencias_sbo": "Escenarios de oferta configurables pedidos por usuario; todas por sentido. No son captaciones ni predicciones de demanda",
+  "naves": {
+    "Tehuelche": {
+      "eslora_m": 70.2,
+      "pasajeros": 250,
+      "VL_aproximados": 30,
+      "ml_variantes": {
+        "CITRA_80": 80,
+        "ARISTO_164": 164
+      },
+      "fuente": "Usuario; CITRA Informe2c pp417-418:80ml/30veh/250pax/70.20m; ARISTO tabla naves p126 y AnexoA RevB:164ml; capacidad no reconciliada"
+    },
+    "Nueva": {
+      "eslora_m": 80,
+      "pasajeros": 300,
+      "VL_aproximados": 44,
+      "ml": 252,
+      "propulsion": "diesel/electrica",
+      "velocidad_tecnica_nudos": 13,
+      "fuente": "Parametros iniciales del usuario; ARISTO p155 indica252ml/13nudos/288pax y EVALSO cap2 indica300asientos/44veh/80m. Se usa300 como definicion actual de usuario, no certificacion"
+    }
+  },
+  "ocupacion_objetivo": [
+    0.8,
+    0.9,
+    0.95
+  ],
+  "factores_punta": [
+    1,
+    1.5,
+    2
+  ],
+  "fuente_punta": "Sensibilidades de diseno sobre la demanda media, no distribucion de llegadas observada ni percentiles estimados",
+  "perfiles_composicion_sensibilidad": {
+    "compacto": {
+      "longitud_VL_m": 4.5,
+      "longitud_CAM_m": 12,
+      "longitud_MOTO_m": 2,
+      "pax_VL": 2.5,
+      "pax_CAM": 1,
+      "pax_MOTO": 1,
+      "longitud_BICI_m": 1.8
+    },
+    "largo": {
+      "longitud_VL_m": 5,
+      "longitud_CAM_m": 18,
+      "longitud_MOTO_m": 2.5,
+      "pax_VL": 2.5,
+      "pax_CAM": 1,
+      "pax_MOTO": 1,
+      "longitud_BICI_m": 1.8
+    },
+    "CAM_longitud_EOD": {
+      "longitud_VL_m": 4.5,
+      "longitud_CAM_m": null,
+      "usar_longitud_CAM_EOD": true,
+      "longitud_MOTO_m": 2,
+      "longitud_BICI_m": 1.8,
+      "pax_VL": 2.5,
+      "pax_CAM": 1,
+      "pax_MOTO": 1
+    }
+  },
+  "fuente_perfiles": "Supuestos de sensibilidad, no longitudes/ocupaciones observadas ni certificacion de estiba. Metros lineales simplificados, sin prueba de anchos, separaciones ni pesos. Personas=peatones+ocupantes supuestos por vehiculo; no se suman nuevamente grupos o pasajeros de bus Perfil CAM_longitud_EOD usa media positiva declarada por campaña/sentido de Longitud en metros del cruce, sin rellenar estratos sin muestra; VL y ocupantes permanecen supuestos. Bicicleta1.8m como huella longitudinal de diseño; no asigna pasajero adicional automáticamente.",
+  "operacion": {
+    "navegacion_h_variantes": [
+      2,
+      2.6666666666666665
+    ],
+    "maniobra_terminal_h": 0.5,
+    "horas_disponibles_dia": 12,
+    "dias_semana": 7,
+    "max_frecuencia_busqueda": 50,
+    "fuente": "Navegacion2h ARISTO tabla38 vs2h40 CITRA p417; se aplica mismo tiempo a ambas naves en cada variante. Maniobra0.5h y ventana12h son supuestos de diseno; no disponibilidad certificada. Reparto de zarpes se optimiza por enumeracion de asignaciones enteras"
+  },
+  "induccion_total_SBO": 0,
+  "fuente_induccion": "Supuesto expreso del usuario: mercado total constante; no implica que la cuota lacustre o la demanda previamente rechazada sean conocidas",
+  "tarifa_acceso_navegacion_constantes": true
+}

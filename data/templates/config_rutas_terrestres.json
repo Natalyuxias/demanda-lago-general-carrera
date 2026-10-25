@@ -1,0 +1,27 @@
+{
+  "fuente_reglas": "Criterios de esta implementacion, no codigos metodologicos entregados por ARISTO",
+  "sin_transbordador_explicito": [
+    "ninguno",
+    "ninguna",
+    "no utiliza transbordador",
+    "no uso transbordador"
+  ],
+  "fronteras_argentina": [
+    "jeinimeni",
+    "huemules",
+    "palavicini",
+    "coyhaique alto",
+    "cardenal samore",
+    "futaleufu",
+    "palena",
+    "rio encuentro",
+    "rio don guillermo",
+    "dorotea",
+    "laurita",
+    "monte aymond",
+    "san sebastian"
+  ],
+  "fuente_fronteras": "Nombres de controles presentes en ARISTO; se distingue interceptacion de declaracion usada/por usar",
+  "citra_muestras_pdf": [],
+  "fuente_citra": "Transcripcion reservada local en data/private/configs/config_rutas_terrestres_pre_publicacion.json. Contraste opcional, sin efecto sobre expansion ARISTO."
+}
