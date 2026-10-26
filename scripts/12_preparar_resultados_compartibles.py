@@ -25,7 +25,33 @@ def save(d,rel,source,criterion):
     MANIFEST.append(dict(archivo=rel,fuente_local=source,criterio_seleccion=criterion,filas=len(d),sha256=hashlib.sha256(p.read_bytes()).hexdigest()))
 
 
+def exportar_etapa12(coverage):
+    """Solo el mercado VL verano ya divulgado; sin totales de otras celdas."""
+    source='etapa12/sensibilidad_proyecto.csv'
+    target='results/etapa12/ejemplo_vl_verano.csv'
+    if not (OUT/source).exists():
+        # Conservar una selección revisada existente si no hay salidas12 locales.
+        manifest=RES/'manifest_publicacion.json'
+        if (ROOT/target).exists():
+            previous=json.loads(manifest.read_text())
+            item=next(x for x in previous['archivos'] if x['archivo']==target)
+            assert hashlib.sha256((ROOT/target).read_bytes()).hexdigest()==item['sha256']
+            MANIFEST.append(item)
+        return
+    support=coverage.loc[coverage.origen.eq('Chile Chico')&coverage.destino.eq('Coyhaique')&coverage.estacion.eq('Verano')&coverage.segmento.eq('VL')]
+    assert len(support)==1 and support.n_terrestre_chile.ge(MIN).all() and support.n_barcaza_actual.ge(MIN).all()
+    d=read(source)
+    d=d.loc[d.origen.eq('Chile Chico')&d.destino.eq('Coyhaique')&d.estacion.eq('Verano')&d.segmento.eq('VL')&d.escenario_mercado.eq('VL24h_exploratorio')].copy()
+    assert len(d)>0 and d.escenario.eq('central').sum()==1 and not d.duplicated(KEY+['escenario']).any()
+    cols=KEY+['escenario','variante','lambda_lago','delta_ASC_nuevo','frecuencia_nuevo','f_SBO_alta','f_SBO_baja','navegacion_h',
+        'demanda_total_OD','unidad','estado','P_SBO_tierra','P_SBO_actual','P_proyecto_tierra','P_proyecto_actual','P_proyecto_nuevo',
+        'demanda_nuevo','desde_tierra','desde_actual','logsum_SBO','logsum_proyecto','ganancia_equivalente_CLP']
+    save(d[cols],target,'outputs/'+source,
+        'Solo VL verano Chile Chico->Coyhaique ya compartido; soporte>=5 por alternativa; central y sensibilidades del mismo mercado; sin otros OD/segmentos ni totales complementarios')
+
+
 def main():
+    MANIFEST.clear()
     bar=read('matrices_od_referencia/matriz_od_barcaza.csv')
     road=read('matrices_od_referencia/matriz_od_terrestre.csv')
     h=read('expansion_temporal_terrestre/matrices_24h_sensibilidades.csv')
@@ -85,7 +111,8 @@ def main():
     save(fit[cols],'results/calibracion_logit/ajuste_global_11b.csv','outputs/calibracion_logit_11b/ajuste_recalibraciones.csv','Objetivos globales sobre61VL/9CAM; proxy referido a VL. Sin desagregacion de los controles de celdas')
     old=read('calibracion_logit/parametros_logit.csv');old=old.loc[old.escenario.eq('central'),['segmento','parametro','valor','unidad','metodo','error_estandar']]
     save(old,'archive/results/etapa11/parametros_centrales.csv','outputs/calibracion_logit/parametros_logit.csv','Comparacion historica de modelos; no entrevistas ni objetivos por celda')
-    (RES/'manifest_publicacion.json').write_text(json.dumps(dict(version='2026-10-25',regla='Seleccion editorial conservadora; MIN5 por alternativa y supresion complementaria; no garantia formal de anonimato',archivos=MANIFEST),ensure_ascii=False,indent=2)+'\n')
+    exportar_etapa12(coverage)
+    (RES/'manifest_publicacion.json').write_text(json.dumps(dict(version='2026-10-26',regla='Seleccion editorial conservadora; MIN5 por alternativa y supresion complementaria; no garantia formal de anonimato',archivos=MANIFEST),ensure_ascii=False,indent=2)+'\n')
     print('Resultados compartibles exportados sin estimar:',len(MANIFEST))
 
 

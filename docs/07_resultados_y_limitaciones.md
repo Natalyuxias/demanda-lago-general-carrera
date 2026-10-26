@@ -78,6 +78,6 @@ Tierra=1−P. PEATON representa un perfil de bus con cuota proxy de VL; no una c
 - La constante absorbe atributos omitidos y supuestos: no extrapolarla como gusto puro del usuario.
 - Datos agregados y publicaciones compartibles no reemplazan la base individual de estimación ni autorizan redistribuir originales.
 - Accesos, tarifas efectivas, longitudes facturables, horarios deseados, modos y costos completos todavía tienen incertidumbre.
-- Lambda y ASC del nuevo cruce no se identifican históricamente; no hay probabilidades/demanda deBahíaJara–Levicán calculadas.
+- Lambda y ASC del nuevo cruce no se identifican históricamente. La [Etapa12](10_etapa12.md) aplica estos parámetros a Bahía Jara–Levicán bajo supuestos explícitos; las tablas de este documento conservan la referencia11B.
 
 Archivos principales: [parámetros](../results/calibracion_logit/parametros_centrales_11b.csv), [probabilidades seleccionadas](../results/calibracion_logit/probabilidades_11b_divulgacion.csv), [sensibilidades](../results/sensibilidades/), [comparación11](../archive/results/etapa11/parametros_centrales.csv). La información reservada conserva su ubicación local en `outputs/` y no se perdió.

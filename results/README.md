@@ -1,9 +1,12 @@
 # Resultados vigentes para consulta
 
-**Escenario central: Etapa 11B.** Estos CSV son una selección revisada de salidas ya calculadas, no otra estimación. Se consultan sin Python. En sus columnas se indican unidades y estado.
+**Avance actual: [resumen de Etapa12](../docs/10_etapa12.md)** y [un CSV con el ejemplo VL de verano](etapa12/ejemplo_vl_verano.csv), central y sensibilidades. Para consultar el avance basta empezar por esos dos archivos.
+
+Los parámetros de referencia siguen siendo11B. Estos CSV son una selección revisada de salidas ya calculadas, no otra estimación. Se consultan sin Python. En sus columnas se indican unidades y estado.
 
 | Carpeta | Contenido |
 |---|---|
+| etapa12/ | Un solo mercado VL ya divulgable: SBO/proyecto, captación, sensibilidades y logsums; NO matriz completa |
 | matrices_od/ | EjemploVLverano con soporte suficiente; restoNaNreservado/faltante |
 | expansion_temporal/ | Factores híbridos de sensibilidad, no oficiales10→24 h |
 | atributos/ | Distancias, tiempos yCOV de red; tarifas de referencia, sin atributos individuales |

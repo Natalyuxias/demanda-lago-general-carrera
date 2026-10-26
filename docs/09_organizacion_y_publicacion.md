@@ -13,6 +13,7 @@
 | `modelo_biogeme.py`, `modelo_biogeme_11b.py` | Bibliotecas compartidas | Utilidad de cuatro componentes, nidos y calibración de ASC |
 | `12_preparar_resultados_compartibles.py` | Organización, sin estimar | Selecciona columnas y celdas de CSV ya calculados |
 | `13_validar_repositorio.py` | Validación, sin estimar | Sintaxis/importaciones, manifiesto, CSV, enlaces y revisión del índice |
+| `14_aplicar_etapa12.py` | Aplicación exploratoria local autorizada | Lee resultados11B intactos; SBO/nuevo cruce, demanda parcial y logsums; sin recalibración ni inducción |
 | `01_auditar_eod.py`, `02_escenarios_demanda.py` | Iniciales/históricos | Auditoría y esquema inicial; no método vigente de captación |
 | `03_estimar_demanda_local.py` | Ejecutable histórico, funciones compartidas | No ejecutar sus porcentajes de captación; conservar sus lectores importados |
 | `04_actualizar_sbo.py`, `05_investigar_demanda_terrestre.py`, `06_resumir_actualizacion.py` | Antecedentes históricos | No constituyen una SBO actual validada |
@@ -57,10 +58,10 @@ Las pruebas solo usan datos sintéticos; algunas verifican optimización Biogeme
 
 La selección de resultados tiene una regla editorial conservadora y supresión complementaria, no una garantía formal de anonimato. No se redistribuyen originales ni se concede licencia sobre datos de terceros.
 
-## Estado del remoto
+## Publicación del avance de Etapa12
 
-Remoto existente: `https://github.com/Natalyuxias/demanda-lago-general-carrera.git`. Rama de trabajo: `main`. Base local anterior a esta organización: `a40fd83`.
+Remoto existente: `https://github.com/Natalyuxias/demanda-lago-general-carrera.git`, rama `main`. La publicación se realiza con autorización expresa del usuario, después de consultar el remoto y comprobar divergencias, mediante commit y push normales, sin force ni reescritura de historial.
 
-En esta sesión, `git fetch origin` falló con `Could not resolve host: github.com`. Por tanto, no se pudo verificar el estado remoto actual. Se prepara el commit local revisado y se intenta `git push origin main`, sin force. Si DNS sigue bloqueado, la disponibilidad en GitHub no está confirmada: tener un commit local no significa haber publicado.
+La selección del avance se concentra en [un resumen para el equipo](10_etapa12.md) y [un CSV del ejemploVL ya divulgable](../results/etapa12/ejemplo_vl_verano.csv), con acceso directo desdeREADME. Se incluyen código, configuración y pruebas para trazabilidad. Los CSV públicos anteriores se conservan; no se publica `outputs/etapa12/`, bases individuales ni nuevas celdas reservadas. El selector12 y el validador13 incorporan la selección deEtapa12 sin volver a estimar el modelo.
 
-Consultar el identificador local con `git log -1 --oneline`. Cuando se restablezca la conexión, ejecutar primero fetch y revisar divergencias. Si el push normal es rechazado por cambios remotos, integrar explícitamente sin sobrescribir trabajo. No se crea otro repositorio, no se borran ramas y no se reescribe historial.
+El commit publicado se puede consultar en el historial deGitHub. La verificación operativa es `git fetch origin` y `git rev-list --left-right --count HEAD...origin/main`: `0 0` después del push confirma coincidencia con el remoto consultado. Un commit local por sí solo no demuestra publicación.

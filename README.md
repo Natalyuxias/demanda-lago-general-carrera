@@ -4,9 +4,13 @@ Repositorio del equipo **EVALSO**, proyecto *Conectividad Lacustre Lago General 
 
 La referencia actual considera **terrestre por Chile (rutas265-CH y7)** y **barcaza Puerto Ibáñez–Chile Chico con sus accesos completos**. Argentina está excluida del modelo vigente. Puerto Ibáñez es una localidad: no equivale a toda la comuna Río Ibáñez.
 
-**Estado vigente: Etapa 11B, calibración exploratoria con pendientes fijadas y ASC recalibradas.** No se ha calculado la demanda captada por el nuevo cruce, la variante P-20a, la comparación con SBO ni demanda inducida. Los resultados son preliminares, no una evaluación social terminada.
+**Avance para el equipo: [Etapa 12 — SBO y Bahía Jara–Levicán](docs/10_etapa12.md).** El resumen reúne resultados, supuestos y pendientes; un [único CSV de consulta](results/etapa12/ejemplo_vl_verano.csv) contiene el ejemplo VL de verano y sus sensibilidades. Para Chile Chico → Coyhaique, el nuevo cruce capta **10,15 vehículos por día equivalente** en el escenario central exploratorio. La cobertura de demanda es parcial: no es un resultado anual ni incluye demanda inducida.
+
+**Parámetros vigentes: Etapa 11B**, con pendientes supuestas y ASC calibradas condicionalmente, conservadas sin recalibrar en12. Las tablas siguientes documentan la referencia11B; la comparación SBO/proyecto está en el resumen enlazado. Los resultados completos permanecen locales por las reservas de divulgación.
 
 ## Guía de lectura
+
+Para conocer el avance actual basta leer el **[resumen de Etapa12](docs/10_etapa12.md)**. Los siguientes documentos son referencias metodológicas:
 
 1. [Resultados y limitaciones](docs/07_resultados_y_limitaciones.md): números e interpretación.
 2. [Calibración logit](docs/05_calibracion_logit.md): ecuación, pesos y parámetros.
@@ -29,7 +33,7 @@ flowchart TD
  G --> H[Etapa 11: intentos de estimación]
  H --> I[Etapa 11B: betas fijos y ASC recalibradas]
  I --> J[Comparación actual y sensibilidades]
- J -. pendiente .-> K[Nuevo cruce, P-20a, SBO y distribución de demanda]
+ J --> K[Etapa12: SBO, nuevo cruce P-20a y distribución condicionada]
 ```
 
 ARISTO es fuente principal. CITRA aporta solamente informes PDF de contraste, sin microdatos disponibles y sin sumar sus muestras a ARISTO. Las auditorías de IA son índices, no fuentes primarias. [Detalle de fuentes](docs/01_fuentes_datos.md).
@@ -155,7 +159,7 @@ Sin originales ni `outputs/` privados se puede consultar resultados, validar los
 
 ```text
 src/demanda/       Funciones reutilizables
-scripts/           Etapas07–11B y herramientas de revisión; legado identificado
+scripts/           Etapas07–12 y herramientas de revisión; legado identificado
 data/templates/   Configuraciones y esquemas sin microdatos
 docs/             Fuentes, método, supuestos, resultados y próximos pasos
 results/          Selección vigente compartible, CSV y Markdown
@@ -168,7 +172,7 @@ data/interim/     Cachés locales, excluidos deGit
 
 ## Estado y continuación
 
-Terminado de forma exploratoria: matrices de referencia, escenarios10→24 h, rutas/atributos actuales, intentos11 y recalibración11B. Pendiente: nuevo cruce completo con **P-20a**, SBO diferenciada de operación histórica, aplicación jerárquica con dos cruces, distribución de demanda, inducción separada y anualización sustentada. [Plan del equipo](docs/08_proximos_pasos.md).
+Terminado de forma exploratoria: matrices de referencia, escenarios10→24 h, rutas/atributos actuales, intentos11 y recalibración11B. Ejecutada la aplicación12 con SBO diferenciada, dos cruces coexistentes y distribución condicionada sin inducción. Pendientes: geometría/conexiones exactas y estándares de proyecto, flota adicional, capacidad, mercados CAM/personas comparables, estaciones faltantes, inducción separada y anualización sustentada. [Etapa12 y reproducción](docs/10_etapa12.md), [plan previo del equipo](docs/08_proximos_pasos.md).
 
 ## Privacidad y publicación
 

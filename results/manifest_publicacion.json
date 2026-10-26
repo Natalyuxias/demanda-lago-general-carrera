@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-25",
+  "version": "2026-10-26",
   "regla": "Seleccion editorial conservadora; MIN5 por alternativa y supresion complementaria; no garantia formal de anonimato",
   "archivos": [
     {
@@ -71,6 +71,13 @@
       "criterio_seleccion": "Comparacion historica de modelos; no entrevistas ni objetivos por celda",
       "filas": 21,
       "sha256": "6cc24381ac9a4e8b8c99d4452f3ebf34266f781bb7b1c58b53f4a21d349d7cd9"
+    },
+    {
+      "archivo": "results/etapa12/ejemplo_vl_verano.csv",
+      "fuente_local": "outputs/etapa12/sensibilidad_proyecto.csv",
+      "criterio_seleccion": "Solo VL verano Chile Chico->Coyhaique ya compartido; soporte>=5 por alternativa; central y sensibilidades del mismo mercado; sin otros OD/segmentos ni totales complementarios",
+      "filas": 22,
+      "sha256": "87ca092c3cda7d33a6cbc237cc6c2c6fb16b052eaae78712283f61535c509020"
     }
   ]
 }

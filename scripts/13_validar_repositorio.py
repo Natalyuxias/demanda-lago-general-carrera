@@ -46,6 +46,26 @@ def main():
         assert d.loc[d.segmento.eq('CAM'),'probabilidad'].isna().all()
         assert d.loc[d.estado_divulgacion.str.startswith('reservado'),'probabilidad'].isna().all()
     checks['probabilidades_y_reservas']=True
+    etapa12=ROOT/'results/etapa12/ejemplo_vl_verano.csv'
+    if etapa12.exists():
+        e=pd.read_csv(etapa12)
+        assert e.origen.eq('Chile Chico').all() and e.destino.eq('Coyhaique').all()
+        assert e.estacion.eq('Verano').all() and e.segmento.eq('VL').all()
+        assert e.escenario.eq('central').sum()==1 and not e.escenario.duplicated().any()
+        assert any(x['archivo']=='results/etapa12/ejemplo_vl_verano.csv' for x in manifest['archivos'])
+        for cols in [['P_SBO_tierra','P_SBO_actual'],['P_proyecto_tierra','P_proyecto_actual','P_proyecto_nuevo']]:
+            assert np.isfinite(e[cols].to_numpy()).all() and e[cols].ge(0).all().all() and e[cols].le(1).all().all()
+            assert np.allclose(e[cols].sum(axis=1),1)
+        reference=pd.read_csv(ROOT/'results/matrices_od/matriz_vl_divulgacion.csv')
+        reference=reference.loc[reference.origen.eq('Chile Chico')&reference.destino.eq('Coyhaique')&reference.estacion.eq('Verano')]
+        assert len(reference)==2 and reference.flujo_diario_equivalente_vehiculos.notna().all()
+        assert np.allclose(e.demanda_total_OD,reference.flujo_diario_equivalente_vehiculos.sum())
+        assert np.allclose(e.demanda_nuevo,e.demanda_total_OD*e.P_proyecto_nuevo)
+        assert np.allclose(e.desde_tierra,e.demanda_total_OD*(e.P_SBO_tierra-e.P_proyecto_tierra))
+        assert np.allclose(e.desde_actual,e.demanda_total_OD*(e.P_SBO_actual-e.P_proyecto_actual))
+        assert np.allclose(e.demanda_nuevo,e.desde_tierra+e.desde_actual)
+        assert (e.logsum_proyecto>=e.logsum_SBO).all()
+        checks['etapa12_seleccion_y_conservacion']=True
     readme=(ROOT/'README.md').read_text();doc=(ROOT/'docs/07_resultados_y_limitaciones.md').read_text()
     for val in p.loc[p.parametro.eq('ASC_barcaza'),'valor']:
         assert f'{val:,.6g}' in readme and f'{val:,.6g}' in doc,'ASC documental distinta de CSV'
