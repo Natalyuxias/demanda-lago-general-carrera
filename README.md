@@ -4,13 +4,13 @@ Repositorio del equipo **EVALSO**, proyecto *Conectividad Lacustre Lago General 
 
 La referencia actual considera **terrestre por Chile (rutas265-CH y7)** y **barcaza Puerto Ibáñez–Chile Chico con sus accesos completos**. Argentina está excluida del modelo vigente. Puerto Ibáñez es una localidad: no equivale a toda la comuna Río Ibáñez.
 
-**Avance para el equipo: [Etapa 12 — SBO y Bahía Jara–Levicán](docs/10_etapa12.md).** El resumen reúne resultados, supuestos y pendientes; un [único CSV de consulta](results/etapa12/ejemplo_vl_verano.csv) contiene el ejemplo VL de verano y sus sensibilidades. Para Chile Chico → Coyhaique, el nuevo cruce capta **10,15 vehículos por día equivalente** en el escenario central exploratorio. La cobertura de demanda es parcial: no es un resultado anual ni incluye demanda inducida.
+**Resultados actuales: [Demanda preliminar — Etapa13](results/demanda_preliminar/RESUMEN_DEMANDA_PRELIMINAR.md).** Incluye demanda existente, desviada e inducida y totales anuales por segmento, bajo supuestos editables. La selección pública presenta intervalos anuales agregados y un ejemploVL ya divulgable; el detalle porOD y estación permanece local por celdas reservadas. Los mercados vehiculares se completan mediante supuestos; en peatones se estiman losOD conCoyhaique y se separa el servicioPuertoIbáñez sin elección terrestre modelada.
 
-**Parámetros vigentes: Etapa 11B**, con pendientes supuestas y ASC calibradas condicionalmente, conservadas sin recalibrar en12. Las tablas siguientes documentan la referencia11B; la comparación SBO/proyecto está en el resumen enlazado. Los resultados completos permanecen locales por las reservas de divulgación.
+**Parámetros vigentes: Etapa11B**, pendientes supuestas yASC calibradas condicionalmente, conservadas sin recalibrar. La [Etapa12](docs/10_etapa12.md) documenta la ofertaSBO/proyecto reutilizada. Las tablas de referencia que siguen pertenecen a11B; los resultados de13 están en el resumen enlazado. No son una medición nueva ni una evaluación social terminada.
 
 ## Guía de lectura
 
-Para conocer el avance actual basta leer el **[resumen de Etapa12](docs/10_etapa12.md)**. Los siguientes documentos son referencias metodológicas:
+Para conocer los resultados actuales basta leer el **[resumen de demanda preliminar](results/demanda_preliminar/RESUMEN_DEMANDA_PRELIMINAR.md)**. Los siguientes documentos son referencias metodológicas:
 
 1. [Resultados y limitaciones](docs/07_resultados_y_limitaciones.md): números e interpretación.
 2. [Calibración logit](docs/05_calibracion_logit.md): ecuación, pesos y parámetros.
@@ -34,6 +34,7 @@ flowchart TD
  H --> I[Etapa 11B: betas fijos y ASC recalibradas]
  I --> J[Comparación actual y sensibilidades]
  J --> K[Etapa12: SBO, nuevo cruce P-20a y distribución condicionada]
+ K --> L[Etapa13: mercados imputados, inducción por perfil y anualización preliminar]
 ```
 
 ARISTO es fuente principal. CITRA aporta solamente informes PDF de contraste, sin microdatos disponibles y sin sumar sus muestras a ARISTO. Las auditorías de IA son índices, no fuentes primarias. [Detalle de fuentes](docs/01_fuentes_datos.md).
@@ -159,7 +160,7 @@ Sin originales ni `outputs/` privados se puede consultar resultados, validar los
 
 ```text
 src/demanda/       Funciones reutilizables
-scripts/           Etapas07–12 y herramientas de revisión; legado identificado
+scripts/           Etapas07–13 y herramientas de revisión; legado identificado
 data/templates/   Configuraciones y esquemas sin microdatos
 docs/             Fuentes, método, supuestos, resultados y próximos pasos
 results/          Selección vigente compartible, CSV y Markdown
@@ -172,7 +173,7 @@ data/interim/     Cachés locales, excluidos deGit
 
 ## Estado y continuación
 
-Terminado de forma exploratoria: matrices de referencia, escenarios10→24 h, rutas/atributos actuales, intentos11 y recalibración11B. Ejecutada la aplicación12 con SBO diferenciada, dos cruces coexistentes y distribución condicionada sin inducción. Pendientes: geometría/conexiones exactas y estándares de proyecto, flota adicional, capacidad, mercados CAM/personas comparables, estaciones faltantes, inducción separada y anualización sustentada. [Etapa12 y reproducción](docs/10_etapa12.md), [plan previo del equipo](docs/08_proximos_pasos.md).
+Terminado de forma exploratoria: matrices de referencia, escenarios10→24 h, rutas/atributos actuales, intentos11 y recalibración11B. Ejecutada la aplicación12 con SBO diferenciada, dos cruces coexistentes y distribución condicionada sin inducción. Etapa13 completa los mercados bajo supuestos explícitos, calcula inducción por perfil y anualiza2026. Pendientes: revisar confiabilidad de transferencias y elasticidades, geometría/terminales, flota y capacidad y los ocho mercados personales sin alternativa terrestre modelada. [Etapa12 y reproducción](docs/10_etapa12.md), [plan previo del equipo](docs/08_proximos_pasos.md).
 
 ## Privacidad y publicación
 

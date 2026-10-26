@@ -42,6 +42,7 @@ __pycache__/
 /outputs/calibracion_logit/
 /outputs/calibracion_logit_11b/
 /outputs/etapa12/
+/outputs/etapa13_demanda_preliminar/
 # Transcripciones de terceros e informes de trabajo pendientes de autorización.
 /data/templates/citra_matriz_publicada.json
 /data/templates/config_estimacion.json

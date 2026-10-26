@@ -1,0 +1,4 @@
+﻿origen,destino,estacion,segmento,sentido,unidad,ambito,dias_estacion,alternativa,probabilidad,existente_redistribuida,inducida,total_con_proyecto
+Chile Chico,Coyhaique,Verano,VL,Chile Chico → Coyhaique,vehiculos_livianos,mercado_eleccion,90,terrestre_chile,0.6015198566053744,39.41418758516132,0.6063267140455629,40.02051429920688
+Chile Chico,Coyhaique,Verano,VL,Chile Chico → Coyhaique,vehiculos_livianos,mercado_eleccion,90,barcaza_actual,0.2436437433058413,15.9645938486572,0.2472762456032709,16.211870094260473
+Chile Chico,Coyhaique,Verano,VL,Chile Chico → Coyhaique,vehiculos_livianos,mercado_eleccion,90,bahia_jara_levican,0.1548364000887841,10.145551890091836,0.157144867244217,10.302696757336053

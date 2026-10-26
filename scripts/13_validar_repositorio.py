@@ -66,6 +66,27 @@ def main():
         assert np.allclose(e.demanda_nuevo,e.desde_tierra+e.desde_actual)
         assert (e.logsum_proyecto>=e.logsum_SBO).all()
         checks['etapa12_seleccion_y_conservacion']=True
+    preliminary=ROOT/'results/demanda_preliminar'
+    if preliminary.exists():
+        pm=json.loads((preliminary/'manifest_publicacion.json').read_text())
+        expected_files={'totales_anuales_intervalos.csv','sensibilidades_intervalos.csv','supuestos_centrales.csv','ejemplo_vl_verano.csv'}
+        assert {Path(item['archivo']).name for item in pm['archivos']}==expected_files
+        for item in pm['archivos']:
+            path=ROOT/item['archivo'];dd=pd.read_csv(path)
+            assert path.parent==preliminary and hashlib.sha256(path.read_bytes()).hexdigest()==item['sha256']
+            assert len(dd)==item['filas']
+            assert not {str(x).lower() for x in dd}.intersection({x.lower() for x in banned})
+            if 'intervalos' in path.name:
+                assert not set(dd).intersection({'origen','destino','estacion','sentido'})
+                assert dd.limite_superior.gt(dd.limite_inferior).all() and dd.limite_inferior.ge(0).all()
+                assert set(dd.segmento)=={'VL','CAM','PEATON'}
+            if path.name=='ejemplo_vl_verano.csv':
+                assert len(dd)==3 and dd.segmento.eq('VL').all() and dd.estacion.eq('Verano').all()
+                assert dd.origen.eq('Chile Chico').all() and dd.destino.eq('Coyhaique').all()
+                assert np.isclose(dd.probabilidad.sum(),1) and dd.inducida.ge(0).all()
+                assert np.allclose(dd.total_con_proyecto,dd.existente_redistribuida+dd.inducida)
+        assert pm['minimo_ancho_relativo']>=.1
+        checks['etapa13_publicacion_restringida_y_hashes']=True
     readme=(ROOT/'README.md').read_text();doc=(ROOT/'docs/07_resultados_y_limitaciones.md').read_text()
     for val in p.loc[p.parametro.eq('ASC_barcaza'),'valor']:
         assert f'{val:,.6g}' in readme and f'{val:,.6g}' in doc,'ASC documental distinta de CSV'

@@ -1,0 +1,273 @@
+{
+  "version": "2026-10-26",
+  "salida_local": "outputs/etapa13_demanda_preliminar",
+  "salida_publica": "results/demanda_preliminar",
+  "ano": 2026,
+  "estaciones": {
+    "Verano": [
+      12,
+      1,
+      2
+    ],
+    "Otoño": [
+      3,
+      4,
+      5
+    ],
+    "Invierno": [
+      6,
+      7,
+      8
+    ],
+    "Primavera": [
+      9,
+      10,
+      11
+    ]
+  },
+  "od": [
+    [
+      "Chile Chico",
+      "Coyhaique"
+    ],
+    [
+      "Coyhaique",
+      "Chile Chico"
+    ],
+    [
+      "Chile Chico",
+      "Puerto Ibáñez"
+    ],
+    [
+      "Puerto Ibáñez",
+      "Chile Chico"
+    ]
+  ],
+  "segmentos": {
+    "VL": "vehiculos_livianos",
+    "CAM": "camiones",
+    "PEATON": "personas_a_pie"
+  },
+  "imputaciones_activas": true,
+  "induccion_activa": true,
+  "perfil_temporal": "CC_PC1_laboral",
+  "factor_mayo_donante": "Primavera",
+  "factor_temporal_multiplicador": 1,
+  "prioridad_estaciones_donantes": {
+    "Verano": [
+      "Primavera",
+      "Otoño"
+    ],
+    "Otoño": [
+      "Primavera",
+      "Verano"
+    ],
+    "Invierno": [
+      "Otoño",
+      "Primavera",
+      "Verano"
+    ],
+    "Primavera": [
+      "Otoño",
+      "Verano"
+    ]
+  },
+  "multiplicador_transferencia": {
+    "Verano": 1,
+    "Otoño": 1,
+    "Invierno": 1,
+    "Primavera": 1
+  },
+  "multiplicador_perfil_mayo": 1,
+  "probabilidad_minima_imputacion": 0.05,
+  "multiplicador_participacion_imputacion": 1,
+  "peaton_metodo": "proxy_etapa12_si_disponible_sino_probabilidad_historica11B",
+  "multiplicador_peaton": 1,
+  "cam_pi_proxy": "mercado_CAM_Coyhaique_misma_direccion_por_razon_mercados_VL_PI_Coyhaique",
+  "peaton_pi": "servicio_lacustre_separado_sin_probabilidades_eleccion_ni_induccion",
+  "elasticidades": {
+    "VL": -0.354,
+    "CAM": -0.106,
+    "PEATON": -0.8
+  },
+  "formula_induccion": "constante",
+  "max_reduccion_cg": 0.95,
+  "factor_cg_referencia": 1,
+  "escenario_oferta12": "central",
+  "escenarios_oferta12_permitidos": [
+    "central",
+    "frecuencia_nuevo7",
+    "frecuencia_nuevo21",
+    "lambda05",
+    "lambda09",
+    "ASC_menos05",
+    "ASC_mas05",
+    "tarifa_menos20",
+    "tarifa_mas20",
+    "navegacion40min",
+    "desembarque15min",
+    "desembarque45min",
+    "acceso_40",
+    "acceso_60"
+  ],
+  "publicacion": {
+    "unidad_intervalo_anual": {
+      "VL": 1000,
+      "CAM": 1000,
+      "PEATON": 10000
+    },
+    "numero_minimo_mercados_agrupados": 8,
+    "publicar_estaciones_od_o_sentidos": false,
+    "publicar_sensibilidades_completas": false,
+    "escenarios_sensibilidad_publicables": [
+      "frecuencia7",
+      "frecuencia21",
+      "elasticidades_bajas",
+      "elasticidades_altas",
+      "aproximacion_local"
+    ],
+    "minimo_ancho_relativo_celda_reservada": 0.1
+  },
+  "justificaciones": {
+    "perfil_temporal": "Etapa08: sensibilidad híbrida10-24h, no medición24h. CAM transfiere perfilVL de la misma campaña.",
+    "factor_mayo_donante": "No hay factor10-24h medido en mayo: se transfiere el factorVL de primavera del perfil elegido, sin presentarlo como observado en mayo.",
+    "multiplicador_perfil_mayo": "Mayo representa marzo-mayo; invierno transfiere el mercado total de mayo del mismo OD/sentido, preservando oferta y probabilidades de destino.",
+    "prioridad_estaciones_donantes": "Primero otra estación del mismo OD y sentido. No se impone simetría. Si falta todo CAM de PI, se usa el OD comparable Coyhaique y la razón de tamañosVL de esa dirección.",
+    "probabilidad_minima_imputacion": "D=ferry expandido/max(P histórica11B,0.05). Protección numérica y multiplicador de participación son supuestos, no calibración de ASC.",
+    "peaton_metodo": "Conservar cuota proxyVL de12 cuando se conoce; resto ferry/P históricaPEATON11B. Ninguna es cuota personal observada. PI se reporta como servicio separado, sin inventar bus.",
+    "cg": "Costo positivo esperadoSBO por perfil: C+(beta_t/beta_c)t+(beta_e/beta_c)e+(beta_a/beta_c)a, sinASC. Previo/desembarque incluidos en t según12. Mejora=deltaLogsum/abs(beta_c).",
+    "heterogeneidad": "Se mantienen los perfiles/pesos11B en cada celda. Se calcula la elasticidad por perfil y se asigna su inducción con sus probabilidadesproyecto, antes de agregar.",
+    "elasticidades": "EVALSO3.4 ecuaciones3.10-3.17 para marco; valoresVL/CAM transferidos y PEATON-0.8 asumido por instrucción13, que sustituye escenario peatonal sin inducción del PDF.",
+    "max_reduccion_cg": "Si r>0.95 se limita explícitamente y se registra. Sensibilidad0.8 y0.99; no se alteranASC ni logsum.",
+    "publicacion": "Solo intervalos amplios anuales por segmento, sin OD/sentido/estación ni cantidades exactas o probabilidadesCAM. Publicación conjunta de límites y no tablas complementarias exactas; detalle reservado local. No garantía formal de anonimato."
+  },
+  "sensibilidades": {
+    "temporal_PC2": {
+      "perfil_temporal": "CC_PC2_laboral"
+    },
+    "temporal_menos20": {
+      "factor_temporal_multiplicador": 0.8
+    },
+    "temporal_mas20": {
+      "factor_temporal_multiplicador": 1.2
+    },
+    "mayo_menos20": {
+      "multiplicador_perfil_mayo": 0.8
+    },
+    "mayo_mas20": {
+      "multiplicador_perfil_mayo": 1.2
+    },
+    "invierno_mitad": {
+      "multiplicador_transferencia": {
+        "Verano": 1,
+        "Otoño": 1,
+        "Invierno": 0.5,
+        "Primavera": 1
+      }
+    },
+    "invierno_mas50": {
+      "multiplicador_transferencia": {
+        "Verano": 1,
+        "Otoño": 1,
+        "Invierno": 1.5,
+        "Primavera": 1
+      }
+    },
+    "cuota_menos20": {
+      "multiplicador_participacion_imputacion": 0.8
+    },
+    "cuota_mas20": {
+      "multiplicador_participacion_imputacion": 1.2
+    },
+    "piso_prob001": {
+      "probabilidad_minima_imputacion": 0.01
+    },
+    "piso_prob010": {
+      "probabilidad_minima_imputacion": 0.1
+    },
+    "peaton_mitad": {
+      "multiplicador_peaton": 0.5
+    },
+    "peaton_mas50": {
+      "multiplicador_peaton": 1.5
+    },
+    "peaton_solo11B": {
+      "peaton_metodo": "probabilidad_historica11B"
+    },
+    "elasticidades_bajas": {
+      "elasticidades": {
+        "VL": 0,
+        "CAM": 0,
+        "PEATON": -0.5
+      }
+    },
+    "elasticidades_altas": {
+      "elasticidades": {
+        "VL": -0.6,
+        "CAM": -0.3,
+        "PEATON": -1.2
+      }
+    },
+    "sin_induccion": {
+      "induccion_activa": false
+    },
+    "sin_imputacion_ni_induccion": {
+      "imputaciones_activas": false,
+      "induccion_activa": false
+    },
+    "aproximacion_local": {
+      "formula_induccion": "local"
+    },
+    "CG_menos20": {
+      "factor_cg_referencia": 0.8
+    },
+    "CG_mas20": {
+      "factor_cg_referencia": 1.2
+    },
+    "limite_r080": {
+      "max_reduccion_cg": 0.8
+    },
+    "limite_r099": {
+      "max_reduccion_cg": 0.99
+    },
+    "frecuencia7": {
+      "escenario_oferta12": "frecuencia_nuevo7"
+    },
+    "frecuencia21": {
+      "escenario_oferta12": "frecuencia_nuevo21"
+    },
+    "lambda05": {
+      "escenario_oferta12": "lambda05"
+    },
+    "lambda09": {
+      "escenario_oferta12": "lambda09"
+    },
+    "ASC_menos05": {
+      "escenario_oferta12": "ASC_menos05"
+    },
+    "ASC_mas05": {
+      "escenario_oferta12": "ASC_mas05"
+    },
+    "tarifa_menos20": {
+      "escenario_oferta12": "tarifa_menos20"
+    },
+    "tarifa_mas20": {
+      "escenario_oferta12": "tarifa_mas20"
+    },
+    "navegacion40": {
+      "escenario_oferta12": "navegacion40min"
+    },
+    "desembarque15": {
+      "escenario_oferta12": "desembarque15min"
+    },
+    "desembarque45": {
+      "escenario_oferta12": "desembarque45min"
+    },
+    "acceso40": {
+      "escenario_oferta12": "acceso_40"
+    },
+    "acceso60": {
+      "escenario_oferta12": "acceso_60"
+    }
+  }
+}

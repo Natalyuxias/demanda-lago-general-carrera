@@ -14,6 +14,7 @@
 | `12_preparar_resultados_compartibles.py` | Organización, sin estimar | Selecciona columnas y celdas de CSV ya calculados |
 | `13_validar_repositorio.py` | Validación, sin estimar | Sintaxis/importaciones, manifiesto, CSV, enlaces y revisión del índice |
 | `14_aplicar_etapa12.py` | Aplicación exploratoria local autorizada | Lee resultados11B intactos; SBO/nuevo cruce, demanda parcial y logsums; sin recalibración ni inducción |
+| `15_estimar_demanda_preliminar.py` | Etapa13, aplicación autorizada | Completa mercados e inducción por perfil, sin recalibrar ni reconstruir atributos; detalle local y selección pública mediante `--publicar` |
 | `01_auditar_eod.py`, `02_escenarios_demanda.py` | Iniciales/históricos | Auditoría y esquema inicial; no método vigente de captación |
 | `03_estimar_demanda_local.py` | Ejecutable histórico, funciones compartidas | No ejecutar sus porcentajes de captación; conservar sus lectores importados |
 | `04_actualizar_sbo.py`, `05_investigar_demanda_terrestre.py`, `06_resumir_actualizacion.py` | Antecedentes históricos | No constituyen una SBO actual validada |
@@ -65,3 +66,11 @@ Remoto existente: `https://github.com/Natalyuxias/demanda-lago-general-carrera.g
 La selección del avance se concentra en [un resumen para el equipo](10_etapa12.md) y [un CSV del ejemploVL ya divulgable](../results/etapa12/ejemplo_vl_verano.csv), con acceso directo desdeREADME. Se incluyen código, configuración y pruebas para trazabilidad. Los CSV públicos anteriores se conservan; no se publica `outputs/etapa12/`, bases individuales ni nuevas celdas reservadas. El selector12 y el validador13 incorporan la selección deEtapa12 sin volver a estimar el modelo.
 
 El commit publicado se puede consultar en el historial deGitHub. La verificación operativa es `git fetch origin` y `git rev-list --left-right --count HEAD...origin/main`: `0 0` después del push confirma coincidencia con el remoto consultado. Un commit local por sí solo no demuestra publicación.
+
+## Resultados de Etapa13
+
+El usuario autorizó calcular una primera demanda completa bajo supuestos y publicar después de validar. La [selección pública](../results/demanda_preliminar/RESUMEN_DEMANDA_PRELIMINAR.md) contiene intervalos anuales porsegmento y un ejemploVL ya divulgado. El detalle requerido porOD, estación, sentido y alternativa queda local en `outputs/etapa13_demanda_preliminar/`, junto con matriz48celdas, ocho servicios personales separados, comprobaciones y hashes. No se borra ni modifica ninguna salida07–12.
+
+No se ofrecen totales exactos complementarios de otras celdas. La revisión conjunta de intervalos usa programación lineal asumiendo conocidos los coeficientes pormercado, relaciones de transferencia, la cuota global11BVL y el ejemplo publicado. Cada mercado reservado debe conservar una amplitud factible mínima del10% bajo esa prueba; es un control de divulgación, no una garantía formal de anonimato. El exportador se detiene si falla.
+
+Reproducción con entradas locales: `.venv/bin/python scripts/15_estimar_demanda_preliminar.py`; exportación revisada agregando`--publicar`. No se ejecutan07–12 ni se recalibran parámetros. Pruebas y revisión del índice mediante los comandos documentados; commit/push normales solo después de aprobar validaciones y privacidad.

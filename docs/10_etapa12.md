@@ -1,4 +1,6 @@
-# Etapa 12 — Avance para el equipo
+# Etapa 12 — Antecedente de oferta y demanda desviada
+
+La [Etapa13](../results/demanda_preliminar/RESUMEN_DEMANDA_PRELIMINAR.md) continúa estos resultados con mercados completados bajo supuestos, inducción y anualización. Este documento conserva el escenario y los resultados de12.
 
 Se aplicó el logit jerárquico de11B a la situación base optimizada (SBO) y al proyecto Bahía Jara–Levicán. Se mantienen tierra por Chile y ambos cruces lacustres coexistentes. Los coeficientes siguen siendo supuestos exploratorios y las ASC son constantes calibradas condicionalmente en11B; no se recalibraron al agregar el proyecto.
 

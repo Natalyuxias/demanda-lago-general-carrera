@@ -1,5 +1,7 @@
 # 08. Continuación del trabajo del equipo
 
+Actualización13: [resultados preliminares de demanda](../results/demanda_preliminar/RESUMEN_DEMANDA_PRELIMINAR.md), con mercados imputados, inducción porperfil y anualización. El listado siguiente conserva el plan histórico de11B; revisar confiabilidad y los mercados personales sin alternativa terrestre sigue pendiente.
+
 Este listado conserva el plan elaborado al terminar11B. La [aplicación exploratoria de Etapa12](10_etapa12.md) ejecuta SBO, atributos condicionadosP-20a, elección anidada y distribución parcial; quedan pendientes la validación física y los mercados/estaciones faltantes. No usar capacidad adicional como demanda adicional ni aplicar tasas arbitrarias de captación. La inducción sigue pendiente.
 
 1. **Definir Bahía Jara–Levicán y variante inicial P-20a.** Verificar trazado, nodo de conexión y acceso a Levicán, longitudes, pendientes, superficie, velocidades, terminales y factibilidad por segmento. P-20a es la variante solicitada para la continuación, no una ruta reconstruida ya disponible.

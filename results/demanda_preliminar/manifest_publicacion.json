@@ -1,0 +1,28 @@
+{
+  "version": "2026-10-26",
+  "criterio": "Intervalos anuales porsegmento; sin desagregacion ni exactos complementarios; únicoejemploVL ya divulgado",
+  "auditoria_intervalos": "LP conjunta con transferencias y ejemplo conocido; amplitud relativa de cada mercado reservado >= umbral configurado; no anonimato formal",
+  "minimo_ancho_relativo": 0.1,
+  "archivos": [
+    {
+      "archivo": "results/demanda_preliminar/ejemplo_vl_verano.csv",
+      "filas": 3,
+      "sha256": "691a74d93c30e2fe1b452233265464e975932b3bd2a29e403a757490223d2fe5"
+    },
+    {
+      "archivo": "results/demanda_preliminar/sensibilidades_intervalos.csv",
+      "filas": 120,
+      "sha256": "36cdbfb75799d0b182e794968ea8e05171f2cacb6a77b5dc386ff09bc14206c4"
+    },
+    {
+      "archivo": "results/demanda_preliminar/supuestos_centrales.csv",
+      "filas": 39,
+      "sha256": "d7ba40b3b7f6161c0ab570b42912cc9a1074d963d55f79f6e28d98d211dd126e"
+    },
+    {
+      "archivo": "results/demanda_preliminar/totales_anuales_intervalos.csv",
+      "filas": 24,
+      "sha256": "e0481c4680cef9638c7d1c4656aa2a1f5f7f318d2a2e19c58f964f9b7fef80c4"
+    }
+  ]
+}
